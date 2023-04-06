@@ -6,7 +6,7 @@ const reducer = (state = [], action) => {
 			return [
 				...state,
 				{
-					id: Date.now() + Math.random(),
+					id: Date.now(),
 					title: action.title,
 					completed: false
 				}
@@ -16,7 +16,9 @@ const reducer = (state = [], action) => {
 			return state.filter(e => e.id !== action.id)
 		}
 		case 'TOGGLE_TODO': {
-			return state.map(e => e.id === action.id ? {...e, completed: !e.completed} : e)
+			return state.map(e => e.id === action.id 
+				? {...e, completed: !e.completed}
+				: e)
 		}
 		default: {
 			return state
