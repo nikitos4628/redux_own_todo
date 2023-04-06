@@ -33,7 +33,7 @@ const AddTodo = () => {
 
 const TodoList = () => {
 	const dispatch = useDispatch()
-	const todos = useSelector(activeTodos)
+	const todos = useSelector(allTodos)
 
 	return(
 		<ul>
