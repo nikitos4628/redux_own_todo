@@ -1,7 +1,10 @@
-import './App.css';
+
 
 import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, deleteTodo, toggleTodo } from './store';
+import { addTodo, deleteTodo, toggleTodo } from './store/actions/todos-actions';
+import { allTodos, activeTodos } from './store/selectors/todos-selectors';
+
+import './App.css';
 
 function App() {
   return (
@@ -30,7 +33,7 @@ const AddTodo = () => {
 
 const TodoList = () => {
 	const dispatch = useDispatch()
-	const todos = useSelector(state => state)
+	const todos = useSelector(activeTodos)
 
 	return(
 		<ul>
